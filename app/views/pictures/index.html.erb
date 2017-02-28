@@ -6,8 +6,10 @@
 <% @pictures.each do |picture| %>
   <div class="well">
   <li><%= image_tag picture.image, :class => "image-size" %></li>
-  <li>Title: <%= picture.title %></li>
+  <li>Title: <%=link_to picture.title, picture_path(picture)  %></li>
   <li>Description: <%= picture.description %></li>
+
+
   </div>
 <% end %>
 <% else %>

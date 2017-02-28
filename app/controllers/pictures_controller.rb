@@ -7,6 +7,7 @@ end
 
 def show
   @picture = Picture.find(params[:id])
+  @task_id = @picture.get_task()
 end
 
 def new
