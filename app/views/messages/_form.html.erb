@@ -1,0 +1,18 @@
+<% if @message.errors.any? %>
+  <p>Something went wrong:</p>
+  <ul>
+    <% @message.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @message do |f| %>
+  <%= f.label :to %>
+  <%= f.text_field :to, :value => @user2.phone  %> <!-- Current_user's phone number -->
+  <%= f.label :from %>
+  <%= f.text_field :from, :value => "2085955077" %>
+  <%= f.label :body %>
+  <%= f.text_field :body, :value => 'Hello' %>
+  <%= f.submit %>
+<% end  %>

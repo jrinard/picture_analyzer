@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twilio.com/2010-04-01/Accounts/<pikachu>/Messages.json
+    body:
+      encoding: US-ASCII
+      string: Body=hi&From=2085955077&To=1111111
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.1 (darwin15.0.0 x86_64) ruby/2.2.3p173
+      Content-Length:
+      - '34'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.twilio.com
+      Authorization:
+      - Basic QUM5MjM0M2QxODlmYzU1M2Y1OGE5MmY5ODk1ZGE4Y2VkNTpkZWVhOGFlYzczZGQwMjM1MjZmNDA0ZDJjNzJiNzlmZQ==
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match,
+        If-Unmodified-Since
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 27 Feb 2017 21:48:59 GMT
+      Twilio-Request-Duration:
+      - '0.114'
+      Twilio-Request-Id:
+      - RQa4d8312a414a44a9bdf9940d4fcc4b45
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      Content-Length:
+      - '154'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"code": 21211, "message": "The ''To'' number 1111111 is not a valid
+        phone number.", "more_info": "https://www.twilio.com/docs/errors/21211", "status":
+        400}'
+    http_version: 
+  recorded_at: Mon, 27 Feb 2017 21:48:59 GMT
+recorded_with: VCR 3.0.3
