@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwilioRails</title>
+    <title>Pictogram</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,10 @@
   <body>
 
     <nav class = "nav navbar navbar-inverse ">
-      <a href="/"><span class="brand">Textilio</span> </a>
+      <a href="/"><span class="brand">Pictogram</span> </a> |
+
+      <%= link_to "Gallery", pictures_path %>
+
 
         <div class="pull-right shift-login">
         <% if current_user %>

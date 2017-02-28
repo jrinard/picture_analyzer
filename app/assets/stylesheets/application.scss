@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+li {
+  list-style-type: none;
+}
+
+
+.image-size {
+  max-width: 200px;
+}
