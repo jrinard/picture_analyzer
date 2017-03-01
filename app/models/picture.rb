@@ -12,7 +12,7 @@ class Picture < ApplicationRecord
     begin
     response = RestClient::Request.new(
       :method => :get,
-      :url => 'https://api.deepomatic.com/v0.6/detect/weapons/?url=http://www.kimberamerica.com/media/catalog/category/pistols-hero.png',
+      :url => "https://api.deepomatic.com/v0.6/detect/weapons/?url=#{self.url}",
       :headers => {
         'X-APP-ID' => '413134115772',
         'X-API-KEY' => 'a521ecad9baa4eadad13c82f56d0d9ff'
@@ -23,30 +23,30 @@ class Picture < ApplicationRecord
       errors.add(:base, message)
       throw(:abort) #helping it not crash if it fails to save
     end
+    JSON.parse(response)["task_id"].to_i
+
   end
 
 
   def get_details
+
     begin
+      
     response = RestClient::Request.new(
       :method => :get,
-      :url => 'https://api.deepomatic.com/v0.6/tasks/269751867/',
+      :url => "https://api.deepomatic.com/v0.6/tasks/#{self.task_id}/",
       :headers => {
         'X-APP-ID' => '413134115772',
         'X-API-KEY' => 'a521ecad9baa4eadad13c82f56d0d9ff'
       }
     ).execute
     rescue RestClient::BadRequest => error
-      message = JSON.parse(error.response)['message']
       errors.add(:base, message)
       throw(:abort) #helping it not crash if it fails to save
-
-      parsed_response = JSON.parse(response)
-      parsed_response['data']
-      parsed_response['boxes']
-      response["data"]["boxes"]
     end
+    JSON.parse(response)
   end
+
 
 
 

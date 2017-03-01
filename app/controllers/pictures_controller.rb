@@ -8,6 +8,8 @@ end
 def show
   @picture = Picture.find(params[:id])
    @task_id = @picture.get_task
+   @picture.update(:task_id => @task_id)
+
    @details = @picture.get_details
 end
 
