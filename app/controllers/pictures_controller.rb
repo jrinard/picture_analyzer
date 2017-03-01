@@ -7,7 +7,8 @@ end
 
 def show
   @picture = Picture.find(params[:id])
-  @task_id = @picture.get_task()
+   @task_id = @picture.get_task
+   @details = @picture.get_details
 end
 
 def new
@@ -35,7 +36,7 @@ def destroy
 end
 
 def picture_params
-   params.require(:picture).permit(:image, :title, :description, :url, :user_id => current_user.id)
+   params.require(:picture).permit(:image, :title, :description, :url, :task_id, :user_id => current_user.id )
   end
 
 
