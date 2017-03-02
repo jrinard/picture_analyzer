@@ -3,20 +3,17 @@
   <head>
     <title>Pictogram</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
 
-    <nav class = "nav navbar navbar-inverse ">
+
+
+    <nav class = "nav navbar navbar-inverse shift ">
       <a href="/"><span class="brand">Pictogram</span> </a> |
-
       <%= link_to "Gallery", pictures_path %>
-
-
-        <div class="pull-right shift-login">
+        <div class="pull-right shift">
         <% if current_user %>
           <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
           <span class="white"><%= current_user.email %></span> |
@@ -32,5 +29,6 @@
       <%= flash[:notice] %>
       <%= yield %>
     </div>
+    
   </body>
 </html>

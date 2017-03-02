@@ -7,7 +7,7 @@ class Picture < ApplicationRecord
 
   def get_task
     begin
-      url = "https://api.deepomatic.com/v0.6/detect/weapons/?url=#{self.image.url}"
+      url = "https://api.deepomatic.com/v0.6/detect/fashion/?url=#{self.image.url}"
       puts url
     response = RestClient::Request.new(
       :method => :get,
