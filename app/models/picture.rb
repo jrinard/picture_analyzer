@@ -5,16 +5,13 @@ class Picture < ApplicationRecord
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-
-
-
-# before_create :get_task
- after_save :get_task
   def get_task
     begin
+      url = "https://api.deepomatic.com/v0.6/detect/weapons/?url=#{self.image.url}"
+      puts url
     response = RestClient::Request.new(
       :method => :get,
-      :url => "https://api.deepomatic.com/v0.6/detect/weapons/?url=#{self.image.url}",
+      :url => url,
       :headers => {
         'X-APP-ID' => '413134115772',
         'X-API-KEY' => 'a521ecad9baa4eadad13c82f56d0d9ff'
@@ -26,16 +23,13 @@ class Picture < ApplicationRecord
       throw(:abort) #helping it not crash if it fails to save
     end
     JSON.parse(response)["task_id"].to_i
-
   end
 
-
   def get_details
-
     begin
     response = RestClient::Request.new(
       :method => :get,
-      :url => "https://api.deepomatic.com/v0.6/tasks/#{self.task_id}/",
+      :url => "https://api.deepomatic.com/v0.6/tasks/" + self.task_id.to_s,
       :headers => {
         'X-APP-ID' => '413134115772',
         'X-API-KEY' => 'a521ecad9baa4eadad13c82f56d0d9ff'

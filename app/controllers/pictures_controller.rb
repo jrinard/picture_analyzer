@@ -6,12 +6,14 @@ def index
 end
 
 def show
-  @picture = Picture.find(params[:id])
-   @task_id = @picture.get_task
-   @picture.update(:task_id => @task_id)
-
-   @details = @picture.get_details
-# @url = http://myserver.com/images
+   @picture = Picture.find(params[:id])
+   if params[:get_task]
+     @task_id = @picture.get_task
+     @picture.update(:task_id => @task_id)
+   end
+   if params[:get_details]
+     @details = @picture.get_details
+   end
 end
 
 def new

@@ -1,9 +1,12 @@
-<%= @picture.title %>
-<%= @task_id %>
+Title: <%= @picture.title %><br>
+Task Id: <%= @task_id %>
 <hr>
-<%= @details['task']['data']['boxes'].to_a[0][0]%><br><br>
 
+<%# @details['task']['data']['boxes'].to_a[0][0]%><br><br>
 
-<h2>
+<%= link_to "Task", :get_task => "Get_task" %>
+<%= link_to "Analyze", :get_details => "AnalyzePhoto" %>
+
+<h3>
 <%= @details%><br>
-</h2>
+</h3>
