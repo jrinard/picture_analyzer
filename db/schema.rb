@@ -1,8 +1,19 @@
 
-ActiveRecord::Schema.define(version: 20170228233059) do
-
-  # These are extensions that must be enabled in order to support this database
+ActiveRecord::Schema.define(version: 20170302234848) do
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string  "username"
+    t.string  "phone"
+    t.string  "email"
+    t.integer "user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "to"
+    t.string "from"
+    t.text   "body"
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.string   "title"
@@ -19,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170228233059) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "phone"
     t.string   "username"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
