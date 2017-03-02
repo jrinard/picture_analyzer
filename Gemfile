@@ -15,6 +15,7 @@ gem 'rest-client', '>= 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'httparty'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -44,7 +45,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end

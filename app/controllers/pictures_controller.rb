@@ -11,6 +11,7 @@ def show
    @picture.update(:task_id => @task_id)
 
    @details = @picture.get_details
+# @url = http://myserver.com/images
 end
 
 def new
@@ -39,7 +40,7 @@ end
 
 def picture_params
    params.require(:picture).permit(:image, :title, :description, :url, :task_id, :user_id => current_user.id )
-  end
+end
 
 
 end
