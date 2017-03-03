@@ -5,17 +5,18 @@ Task Id: <%= @task_id %>
 <% if @details %>
 <%# @details['task']['data']['boxes'].to_a[0][0]%><br><br>
 
-<ul>
   <% @kevin = @details['task']['data']['boxes'].map %><br><br>
   <%= @kevin.each do |k| %>
     <%= k.to_a[0] %><br>
   <% end %>
-</ul>
+
 <% end %>
 
-<%= link_to "Task", :get_task => "Get_Task", :class => "btn" %> |
-<%= link_to "Analyze", :get_details => "AnalyzePhoto", :class => "btn" %>
 
-<h3>
+<hr>
+<%= link_to "Task", :get_task => "Get_Task", :class => "btn" %>
+<%= link_to "Analyze", :get_details => "AnalyzePhoto", :class => "btn" %>
+<hr>
+<h4>
 <%= @details%><br>
-</h3>
+</h4>
